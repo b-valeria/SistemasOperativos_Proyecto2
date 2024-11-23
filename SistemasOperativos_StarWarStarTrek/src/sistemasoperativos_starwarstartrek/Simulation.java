@@ -37,7 +37,9 @@ public class Simulation {
         characters.add(new Character ("Worf","Star Trek", 4, 4, 3, 1));
         characters.add(new Character ("Christopher Pike","Star Trek", 8, 9, 6, 6));
         characters.add(new Character ("Scotty","Star Trek", 7, 8, 8, 7));
-    
+        
+        
+        
          // Crear una instancia de MyQueues
         MyQueues myQueues = new MyQueues();
         
@@ -61,7 +63,14 @@ public class Simulation {
         ArtificialIntelligence ai = new ArtificialIntelligence(myQueues);
 
        // Simular la gestión de las colas
-        while (!myQueues.queueSWPriority1.isEmpty() && !myQueues.queueSTPriority1.isEmpty()) {
+        while (!myQueues.queueSWPriority1.isEmpty() || 
+                !myQueues.queueSWPriority2.isEmpty() || 
+                !myQueues.queueSWPriority3.isEmpty() || 
+                !myQueues.queueSWBackUp.isEmpty() || 
+                !myQueues.queueSTPriority1.isEmpty() || 
+                !myQueues.queueSTPriority2.isEmpty() || 
+                !myQueues.queueSTPriority3.isEmpty() || 
+                !myQueues.queueSTBackUp.isEmpty()) {
             System.out.println("Cycle:");
             admin.manageQueues();
 

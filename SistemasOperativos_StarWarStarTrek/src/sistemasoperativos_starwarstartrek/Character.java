@@ -23,7 +23,7 @@ public class Character {
     
     //Constructor
     public Character(String name, String franchise, int abilities, int lifeScore, int strength, int agility){
-        this.ID = ++counter;
+        this.ID = IDGenerator.getNextID(); // Obtener un ID único
         this.name = name;
         this.franchise = franchise;
         this.abilities = abilities;
