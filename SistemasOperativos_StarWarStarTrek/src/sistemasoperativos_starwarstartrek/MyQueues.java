@@ -164,17 +164,19 @@ public void initializeQueues(Character[] characters) {
     
     // Método para imprimir las colas
         public void printQueues() {
-        System.out.println("Colas de Star Wars:");
-        System.out.println("Prioridad 1: " + getIDstring(queueSWPriority1));
-        System.out.println("Prioridad 2: " + getIDstring(queueSWPriority2));
-        System.out.println("Prioridad 3: " + getIDstring(queueSWPriority3));
-        System.out.println("Backup: " + getIDstring(queueSWBackUp));
+        String colasSW = "";
+        colasSW += "Colas de Star Wars:\n";
+        colasSW += "Prioridad 1: " + getIDstring(queueSWPriority1)+ "\n";
+        colasSW += "Prioridad 2: " + getIDstring(queueSWPriority2)+ "\n";
+        colasSW += "Prioridad 3: " + getIDstring(queueSWPriority3)+ "\n";
+        colasSW += "Backup: " + getIDstring(queueSWBackUp);
         
-        System.out.println("Colas de Star Trek:");
-        System.out.println("Prioridad 1: " + getIDstring(queueSTPriority1));
-        System.out.println("Prioridad 2: " + getIDstring(queueSTPriority2));
-        System.out.println("Prioridad 3: " + getIDstring(queueSTPriority3));
-        System.out.println("Backup: " + getIDstring(queueSTBackUp));
+        String colasST = "";
+        colasST += "Colas de Star Trek:\n";
+        colasST += "Prioridad 1: " + getIDstring(queueSTPriority1) + "\n";
+        colasST += "Prioridad 2: " + getIDstring(queueSTPriority2)+ "\n";
+        colasST += "Prioridad 3: " + getIDstring(queueSTPriority3)+ "\n";
+        colasST += "Backup: " + getIDstring(queueSTBackUp);
         }
 }
 

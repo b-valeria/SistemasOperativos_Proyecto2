@@ -16,6 +16,9 @@ public class ArtificialIntelligence {
     private MyQueues myQueues; 
     private List<Winner> winners; // Lista para almacenar los IDs de los ganadores
     private Random random;
+    // Variables para contar combates ganados
+    private int swWins = 0; // Contador para Star Wars
+    private int stWins = 0; // Contador para Star Trek
 
     // Constructor
     public ArtificialIntelligence(MyQueues myQueues) {
@@ -25,12 +28,14 @@ public class ArtificialIntelligence {
     }
     // Método para procesar el combate
     public void processBattle(Character swCharacter, Character stCharacter) {
+        //"WAITING"
         try {
             // Simular tiempo de procesamiento de 10 segundos
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //DECIDING
 
         int outcome = random.nextInt(100); // Resultado aleatorio entre 0 y 99
 
@@ -51,11 +56,13 @@ public class ArtificialIntelligence {
         if (swScore > stScore) {
             System.out.println("Winner: " + swCharacter.getname());
             winners.add(new Winner(swCharacter.getID(), swCharacter.getname())); // Almacena el ganador
+            swWins++; //Anota el win para la franquicia
             removeCharacter(stCharacter);
             removeCharacter(swCharacter);
         } else if (stScore > swScore) {
-            System.out.println("Winner: " + stCharacter.getname());
+            System.out.println("Winner: " + stCharacter.getname()); //Aqui es ANNOUNCING
             winners.add(new Winner(stCharacter.getID(), stCharacter.getname())); // Almacena el ganador
+            stWins++; //Anota el win para la franquicia
             removeCharacter(swCharacter);
             removeCharacter(stCharacter);
         } else {
