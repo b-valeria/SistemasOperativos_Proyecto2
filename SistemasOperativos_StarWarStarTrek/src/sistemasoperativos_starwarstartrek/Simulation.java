@@ -38,7 +38,8 @@ public class Simulation {
         characters.add(new Character ("Christopher Pike","Star Trek", 8, 9, 6, 6));
         characters.add(new Character ("Scotty","Star Trek", 7, 8, 8, 7));
         
-        
+        Interfaz inter = new Interfaz();
+        inter.setVisible(true);
         
          // Crear una instancia de MyQueues
         MyQueues myQueues = new MyQueues();

@@ -1,21 +1,44 @@
+package sistemasoperativos_starwarstartrek;
+import javax.swing.*;
+import java.awt.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package sistemasoperativos_starwarstartrek;
+
 
 /**
- *
- * @author ffust
- */
-public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
+*
+* @author ffust
+*/
+public class Interfaz extends javax.swing.JFrame {
+    private MyQueues myQueues;
+    
+
+/**
+ * Creates new form Interfaz
+ */
     public Interfaz() {
-        initComponents();
-    }
+    initComponents();
+    myQueues = new MyQueues(); // Inicializa la instancia de MyQueues
+
+    // Hilo para actualizar automaticamente
+    new Thread(() -> {
+        while (true) {
+            // Update the text area with the current state of the queues
+            SwingUtilities.invokeLater(() -> {
+                starWarsTextArea.setText(myQueues.printQueues());
+            });
+
+            try {
+                Thread.sleep(2000); // Update every 2 seconds (adjust as needed)
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }).start();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -221,38 +244,7 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Interfaz().setVisible(true);
-            }
-        });
-    }
-
+    /**/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aiResult;
     private javax.swing.JComboBox<String> jComboBox1;

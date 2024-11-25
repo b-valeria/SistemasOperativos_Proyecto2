@@ -163,20 +163,21 @@ public void initializeQueues(Character[] characters) {
     }
     
     // Método para imprimir las colas
-        public void printQueues() {
-        String colasSW = "";
-        colasSW += "Colas de Star Wars:\n";
-        colasSW += "Prioridad 1: " + getIDstring(queueSWPriority1)+ "\n";
-        colasSW += "Prioridad 2: " + getIDstring(queueSWPriority2)+ "\n";
-        colasSW += "Prioridad 3: " + getIDstring(queueSWPriority3)+ "\n";
-        colasSW += "Backup: " + getIDstring(queueSWBackUp);
+        public String printQueues() {
+        StringBuilder elements = new StringBuilder(); // Use StringBuilder para construir la cadena
+        elements.append("Star Wars Queues:\n");
+        elements.append("Priority 1: ").append(getIDstring(queueSWPriority1)).append("\n");
+        elements.append("Priority 2: ").append(getIDstring(queueSWPriority2)).append("\n");
+        elements.append("Priority 3: ").append(getIDstring(queueSWPriority3)).append("\n");
+        elements.append("Backup: ").append(getIDstring(queueSWBackUp)).append("\n");
         
-        String colasST = "";
-        colasST += "Colas de Star Trek:\n";
-        colasST += "Prioridad 1: " + getIDstring(queueSTPriority1) + "\n";
-        colasST += "Prioridad 2: " + getIDstring(queueSTPriority2)+ "\n";
-        colasST += "Prioridad 3: " + getIDstring(queueSTPriority3)+ "\n";
-        colasST += "Backup: " + getIDstring(queueSTBackUp);
+        elements.append("Star Trek Queues:\n");
+        elements.append("Priority 1: ").append(getIDstring(queueSTPriority1)).append("\n");
+        elements.append("Priority 2: ").append(getIDstring(queueSTPriority2)).append("\n");
+        elements.append("Priority 3: ").append(getIDstring(queueSTPriority3)).append("\n");
+        elements.append("Backup: ").append(getIDstring(queueSTBackUp)).append("\n");
+        
+        return elements.toString();
         }
 }
 
